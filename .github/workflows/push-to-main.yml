@@ -18,7 +18,7 @@ jobs:
     # Sets up Docker environment on macOS runner
     - name: Install Docker
       run: |
-        brew install docker
+        brew install --cask docker
         ls /Applications | head
         sudo /Applications/Docker.app/Contents/MacOS/Docker --unattended --install-privileged-components
         open -a /Applications/Docker.app --args --unattended --accept-license
