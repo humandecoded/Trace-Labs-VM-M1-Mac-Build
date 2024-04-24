@@ -19,7 +19,8 @@ jobs:
     - name: Install Docker
       run: |
         brew install docker
-        colima start
+        brew install colima
+        brew services start colima
         
 
     # build docker image
@@ -27,9 +28,8 @@ jobs:
       run:  |
           cd $GITHUB_WORKSPACE
           chmod +x *.sh
-          docker build -t tlm1-builder .
    
     # use docker to run the build_tracelabsiso_recipe.sh script    
     - name: Run Docker command
       run: |
-          docker run --rm --interactive --net host --privileged --volume $(pwd):/recipes --workdir /recipes tlm1-builder ./build_tracelabsiso_recipe.sh
+          docker run --rm --interactive --net host --privileged --volume $(pwd):/recipes --workdir /recipes docker.io/humandecoded/tlm1-builder ./build_tracelabsiso_recipe.sh
