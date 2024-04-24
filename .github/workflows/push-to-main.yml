@@ -19,7 +19,7 @@ jobs:
     - name: Install Docker
       run: |
         brew install --cask docker
-        ls /Applications | head
+        ls /Applications/Docker.app/Contents/MacOS | head
         sudo /Applications/Docker.app/Contents/MacOS/Docker --unattended --install-privileged-components
         open -a /Applications/Docker.app --args --unattended --accept-license
         echo "We are waiting for Docker to be up and running. It can take over 2 minutes..."
