@@ -10,7 +10,7 @@ on:
 jobs:
   run-docker:
     # Specifies that the job runs on a macOS environment
-    runs-on: macos-14
+    runs-on: macos-latest
     # checkout the code from the repository
     steps:
     - uses: actions/checkout@v4
