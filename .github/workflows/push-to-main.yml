@@ -20,7 +20,7 @@ jobs:
       run: |
         brew install docker
         brew install colima
-        brew services start colima
+        start colima
         
 
     # build docker image
