@@ -18,10 +18,13 @@ jobs:
     # Sets up Docker environment on macOS runner
     - name: Install Docker
       run: |
-        brew install --cask docker
+        curl -o Docker.dmg https://desktop.docker.com/mac/main/arm64/145265/Docker.dmg
+        sudo hdiutil attach Docker.dmg
+        sudo /Volumes/Docker/Docker.app/Contents/MacOS/install --accept-license
+        sudo hdiutil detach /Volumes/Docker
         open -a /Applications/Docker.app --args --unattended --accept-license
         echo "We are waiting for Docker to be up and running. It can take over 2 minutes..."
-        sleep 180
+        sleep 300
         
 
     # build docker image
